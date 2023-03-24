@@ -1,7 +1,7 @@
 #!/bin/bash
 
 i=0
-input="bulk"${1}"cram.txt"
+input="bulk"${1}"cram_new.txt"
 while read path
 do
     cram_name=$(basename "$path" .cram)

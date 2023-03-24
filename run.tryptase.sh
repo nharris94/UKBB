@@ -16,7 +16,7 @@ dir="/opt/notebooks/Analysis_1"
 echo "Notice current working directory!!!"
 echo $dir
 
-sample=1060165_23143_0_0
+sample=$1
 
 cfile="${dir}/cram/${sample}.cram"
 odir="${dir}/genotype/${sample}"
