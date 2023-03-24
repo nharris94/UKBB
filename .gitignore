@@ -1,11 +1,4 @@
-
-.DS_Store
-.DS_Store
-
 #ignore user files
-project_management/Input/*
-project_management/Intermediate/*
-project_management/Output/*
-project_management/Scripts/.*
-project_management/.*
-.Rproj.user
+cram/*
+genotype/*
+tmp/*
