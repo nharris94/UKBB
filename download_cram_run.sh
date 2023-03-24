@@ -7,8 +7,8 @@ do
     cram_name=$(basename "$path" .cram)
     echo $cram_name
 
-    dx download Bulk/Exome\ sequences/Exome\ OQFE\ CRAM\ files/10/"${cram_name}".cram -o cram/
-    dx download Bulk/Exome\ sequences/Exome\ OQFE\ CRAM\ files/10/"${cram_name}".cram.crai -o cram/
+    dx download Bulk/Exome\ sequences/Exome\ OQFE\ CRAM\ files/${1}/"${cram_name}".cram -o cram/
+    dx download Bulk/Exome\ sequences/Exome\ OQFE\ CRAM\ files/${1}/"${cram_name}".cram.crai -o cram/
 
     bash run.tryptase.sh $cram_name
 
