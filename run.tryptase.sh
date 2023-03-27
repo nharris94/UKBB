@@ -12,7 +12,7 @@
 
 #dir="/opt/notebooks/IGM_Joshua/Analysis_1"
 
-dir="/opt/notebooks/Analysis_1"
+dir=$(pwd)
 echo "Notice current working directory!!!"
 echo $dir
 

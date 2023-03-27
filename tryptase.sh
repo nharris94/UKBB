@@ -10,7 +10,9 @@ mkdir -p ${odir}
 mkdir -p ${tdir}
 
 samtools="/usr/local/bin/samtools"
-bwa="/opt/notebooks/Analysis_1/bwa/bwa"
+dir=$(pwd)
+bwa="${dir}/bwa/bwa"
+python="${dir}/Python-2.7/python"
 region="chr16:1200000-1299999" # GRCh38/hg38
 fa_cons="${rdir}/CONS.fa"
 fa_tps="${rdir}/TPS.fa"
@@ -40,7 +42,7 @@ ${bwa} mem -p -M -R '@RG\tID:1\tSM:'${sample} ${fa_cons} ${fq_raw} | awk '$1 != 
 
 
 ## Cluster mapped reads into distinct haplotypes
-cat ${bam_aln} | awk '$10!~/N/' | /opt/notebooks/Analysis_1/Python-2.7/python parseHaplotypes.py > ${fa_hap}
+cat ${bam_aln} | awk '$10!~/N/' | ${python} parseHaplotypes.py > ${fa_hap}
 
 cat ${fa_hap} | \
 sed 's/ .*//' | \
