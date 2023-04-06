@@ -11,7 +11,7 @@ mkdir -p ${tdir}
 
 samtools="/usr/local/bin/samtools"
 dir=$(pwd)
-bwa="${dir}/bwa/bwa"
+bwa="${dir}/bwa-master/bwa"
 python="${dir}/Python-2.7/python"
 region="chr16:1200000-1299999" # GRCh38/hg38
 fa_cons="${rdir}/CONS.fa"
