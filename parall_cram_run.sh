@@ -33,3 +33,9 @@ do
        break
     fi
 done < $input
+
+# no more jobs to be started but wait for pending jobs
+# (all need to be finished)
+wait
+
+echo "all done"
