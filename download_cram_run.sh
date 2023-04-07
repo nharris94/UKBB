@@ -15,9 +15,11 @@ do
     dx upload -r genotype/${cram_name} --path /Analysis_1/genotype/${cram_name}
 
     rm cram/${cram_name}.*
-    #((i=i+1))
-    #if [[ $i == 5 ]]
-    #then
-    #    break
-    #fi
+
+    #after running certain number of jobs, terminate
+    ((i=i+1))
+    if [[ $i == 5 ]]
+    then
+        break
+    fi
 done < $input
