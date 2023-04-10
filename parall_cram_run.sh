@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SECONDS=0
+start=$(date +%s)
 i=0
 N=10
 input="bulk"${1}"cram_new.txt"
@@ -81,7 +83,7 @@ do
 
         # dx upload -r genotype/${cram_name} --path /Analysis_1/genotype/${cram_name}
 
-        # rm cram/${cram_name}.*
+        rm cram/${cram_name}.*
     ) &
 
     # allow to execute up to $N jobs in parallel
@@ -93,7 +95,7 @@ do
 
     #after running certain number of jobs, terminate
     ((i=i+1))
-    if [[ $i == 20 ]]
+    if [[ $i == 100 ]]
     then
        break
     fi
@@ -104,3 +106,9 @@ done < $input
 wait
 
 echo "all done"
+duration=$SECONDS
+echo "start: $start"
+echo "end: $(date +%s)"
+echo "duration: $(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed."
+
+
