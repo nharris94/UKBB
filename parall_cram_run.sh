@@ -81,7 +81,11 @@ do
         sort -k4,4 -k3nr > \
         ${out_hap}
 
-        # dx upload -r genotype/${cram_name} --path /Analysis_1/genotype/${cram_name}
+        dx upload -r genotype/${cram_name} --path /Analysis_1/genotype/${cram_name}
+
+        $samtools depth cram/${cram}.cram | awk -v cram_var="$cram" 'OFS="\t" {sum+=$3} END { print cram_var,sum/NR}' > ${dir}/tsv/${cram}.sample.tsv
+
+        awk -v cram_var="$cram" 'OFS="\t" {print cram_var,$0}' genotype/${cram}/${cram}.output.txt > ${dir}/tsv/${cram}.genotype.tsv
 
         rm cram/${cram_name}.*
     ) &
@@ -94,11 +98,11 @@ do
     fi
 
     #after running certain number of jobs, terminate
-    ((i=i+1))
-    if [[ $i == 100 ]]
-    then
-       break
-    fi
+    #((i=i+1))
+    #if [[ $i == 100 ]]
+    #then
+    #   break
+    #fi
 done < $input
 
 # no more jobs to be started but wait for pending jobs
