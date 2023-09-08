@@ -83,9 +83,9 @@ do
 
         dx upload -r genotype/${cram_name} --path /Analysis_1/genotype/${cram_name}
 
-        $samtools depth cram/${cram}.cram | awk -v cram_var="$cram" 'OFS="\t" {sum+=$3} END { print cram_var,sum/NR}' > ${dir}/tsv/${cram}.sample.tsv
+        $samtools depth cram/${cram_name}.cram | awk -v cram_var="$cram_name" 'OFS="\t" {sum+=$3} END { print cram_var,sum/NR}' > ${dir}/tsv/${cram_name}.sample.tsv
 
-        awk -v cram_var="$cram" 'OFS="\t" {print cram_var,$0}' genotype/${cram}/${cram}.output.txt > ${dir}/tsv/${cram}.genotype.tsv
+        awk -v cram_var="$cram_name" 'OFS="\t" {print cram_var,$0}' genotype/${cram_name}/${cram_name}.output.txt > ${dir}/tsv/${cram_name}.genotype.tsv
 
         rm cram/${cram_name}.*
     ) &
