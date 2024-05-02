@@ -11,3 +11,6 @@ do
         cat tsv/${cram_name}.genotype.tsv >> tryptase_${1}.genotype.tsv
 
 done < $input
+
+dx upload tryptase_${1}.sample.tsv --path /Analysis_1/tsv/tryptase_${1}.sample.tsv
+dx upload tryptase_${1}.genotype.tsv --path /Analysis_1/tsv/tryptase_${1}.sample.tsv
