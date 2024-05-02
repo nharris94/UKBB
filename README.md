@@ -14,16 +14,10 @@ After cloning repo on UKBB virtual machine
 ./unzip_make.sh
 ```
 
-3. process crams as background jobs (done on per folder basis)
+3. process crams as background jobs (done on per folder basis), will also upload finished files to UKKB
 
 ```
 ./parall_cram_run.sh ${fold_num}
-```
-
-4.
-
-```
-./mean_cov_geno.sh
 ```
 
 5.
