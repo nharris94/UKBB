@@ -115,4 +115,4 @@ echo "start: $start"
 echo "end: $(date +%s)"
 echo "duration: $(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed."
 
-
+./mean_cov_geno.sh ${1}
